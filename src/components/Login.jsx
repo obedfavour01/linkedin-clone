@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import {useDispatch } from 'react-redux'
 import {signInApi} from '../actions/index'
 import { useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect,Link } from 'react-router-dom'
+import Left from './Left'
 
 
 
@@ -21,7 +22,7 @@ const Login = () => {
 
                <div>
                    <Join>Join now</Join>
-                   <SignIn>Sign In</SignIn>
+                   <SignIn> Sign In</SignIn>
                </div>
            </Nav>
 
@@ -101,6 +102,11 @@ line-height: 40px;
 padding: 10px 24px;
 text-align: center;
 background-color: rgba(0,0,0,0);
+text-decoration: none;
+
+Link{
+    text-decoration: none;
+}
 
 &:hover{
     background-color : rgba(112,181,249,0.15);
@@ -166,8 +172,15 @@ margin-right: 10px;
 margin-top: 100px;
 width: 420px;
 
+
 @media(max-width: 768px){
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+  
+    margin:auto;
 
 }
 

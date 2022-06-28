@@ -5,19 +5,21 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import { useDispatch, useSelector } from "react-redux";
 import{ getUserAuth} from './actions/index';
-
+import store from './store/index'
 
 
 
 function App() {
 
-  const auth = useSelector(state => state.userState)
-
+  const auth = useSelector(state => state.userState.user)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-      dispatch(getUserAuth())
-  },[])
+  useEffect((auth) => {
+      
+      //  dispatch(getUserAuth())
+    console.log(store.getState())
+     
+  },[auth])
 
   return (
     <div className="App">

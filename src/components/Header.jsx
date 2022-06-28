@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { signOutApi } from '../actions'
 
 const Header = () => {
-    const auth = useSelector(state => state.userState.user)
+    const zoe = useSelector(state =>  state.userState.user)
 
     const dispatch = useDispatch()
     return (
@@ -65,15 +65,15 @@ const Header = () => {
                     <User>
                         <a> 
                             {
-                                auth && auth.photoURL ? <img src = {auth.photoURL}/> : 
+                                zoe && zoe.photoURL ? <img src = {zoe.photoURL}/> : 
                                 <img src="/images/user.svg"  className= 'icon'alt="" />
                             
                             }
-                            <span>Me</span>
+                            <span>{zoe && zoe.displayName ? zoe.displayName.split(" ")[1] : 'Me'}</span>
                             <img src="/images/down-icon.svg" alt="" />
                         </a>
 
-                        <SignOut onClick = {dispatch(signOutApi())}>
+                        <SignOut onClick = {() =>  dispatch(signOutApi())}>
                             <a>
                                 Sign Out
                             </a>
@@ -152,7 +152,7 @@ margin: 0;
 pointer-events: none;
 display: flex;
 justify-content: center;
-align-item : center;
+align-items : center;
 `
 
 const Nav = styled.nav`
@@ -201,7 +201,7 @@ a{
     display: flex;
     flex-direction:column;
     font-size: 12px;
-    justify-content; center;
+    justify-content:center;
     line-height: 1.5;
     min-height: 42px;
     min-width: 80px;
@@ -240,12 +240,13 @@ font-size: 16px;
 transition-duration: 0.4s;
 text-align: center;
 display:none;
+cursor:pointer;
 `
 const User = styled(NavList)`
 margin-top: 5px;
 a > svg{
     width: 24px;
-    border-radi
+    border-radius: 50%;
 }
 a> img{
     width:24px;
@@ -267,7 +268,7 @@ span{
     }
 }
 
-`;
+`
 
 const Work = styled(User)`
 border-left: 1px solid rgba(0,0,0,0.6);

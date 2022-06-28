@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import React from 'react'
+import {useSelector} from 'react-redux';
 
 const Left = () => {
+    const names = useSelector(state => state.userState.user)
     return (
        <Container>
            <Artcard>
@@ -9,7 +11,7 @@ const Left = () => {
                         <CardBackground/>
                         <a href = '#'>
                             <Photo/>
-                            <Link>Welcome.there</Link>
+                            <Link>{names ? `Welcome, ${names.displayName}` : `Welcome, there`}</Link>
                         </a>
 
                         <a href = '#'>

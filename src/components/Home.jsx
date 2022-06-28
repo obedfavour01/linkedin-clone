@@ -4,15 +4,15 @@ import Left from './Left'
 import Main from './Main'
 import Rightside from './Rightside'
 import {useSelector} from 'react-redux'
-import { Redirect } from 'react-router-dom    '
+import { Redirect } from 'react-router-dom'
 
 const Home = () => {
-    const log = useSelector(state => state.userState)
+    const log = useSelector(state => state.userState.user)
     return (
-        <div>  
-         
+        <div>
+
         {
-            log.user == null && <Redirect to ='/Login'/>
+            !log && <Redirect to ='/'/>
         }
             <Header/>
             <Container>
@@ -30,7 +30,7 @@ const Home = () => {
                 </Layout>
             </Container>
 
-        </div> 
+        </div>
     )
 }
 

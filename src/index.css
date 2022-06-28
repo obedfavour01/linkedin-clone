@@ -20,3 +20,24 @@ div,h1,h2,h3,h4,h5,h6,header,html,img,label,li,nav,p,span,small,ul{
 body{
     font-family: Arial, sans-serif;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+    to{
+        opacity:1;
+    }
+    
+}
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+    to{
+        opacity:1;
+    }
+    
+}
